@@ -15,24 +15,25 @@ import UIKit
 */
 @IBDesignable class UVSearchBar: UISearchBar {
     // MARK: - Properties
-    @IBInspectable var textFieldFont: UIFont = UIFont.systemFont(ofSize: 20)
-    @IBInspectable var textFieldTextColor: UIColor = UIColor.black
+    @IBInspectable var textFieldFont: UIFont = UIFont.systemFontOfSize(20)
+    @IBInspectable var textFieldTextColor: UIColor = UIColor.blackColor()
     @IBInspectable var searchIcon: UIImage? = UIImage(named: "searchIcon")
     @IBInspectable var textFieldEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 16,
                                                                         left: 16,
                                                                         bottom: 16,
                                                                         right: 16)
-    @IBInspectable var textFieldBackgroundColor: UIColor = .white
+    @IBInspectable var textFieldBackgroundColor: UIColor = UIColor.whiteColor()
     
     /// A custom cancel button
     var cancelButton: UIButton {
         if let button = self.viewWithTag(315) as? UIButton {
             return button
         } else {
-            let button = UIButton(type: .system)
-            button.setTitle(Bundle(identifier: "com.apple.UIKit")?.localizedString(forKey: "Cancel", value: "", table: nil), for: .normal)
+            let button = UIButton(type: .System)
+            button.setTitle(NSBundle(identifier: "com.apple.UIKit")?.localizedStringForKey("Cancel", value: "", table: nil), forState: .Normal)
             button.sizeToFit()
-            button.addTarget(self, action: #selector(self.cancelButtonTapped), for: .touchUpInside)
+            button.addTarget(self, action: #selector(self.cancelButtonTapped),
+                             forControlEvents: .TouchUpInside)
             button.tag = 315
             button.frame.origin = CGPoint(x: frame.width - 8 - button.frame.width,
                                           y: frame.height/2 - button.frame.height/2)
@@ -43,9 +44,9 @@ import UIKit
     
     
     // MARK: - Custom drawing
-    override func draw(_ rect: CGRect) {
+    override func drawRect(rect: CGRect) {
         defer {
-            super.draw(rect)
+            super.drawRect(rect)
         }
         
         guard let searchTextField = self.searchTextField else {
@@ -78,7 +79,7 @@ import UIKit
         self.backgroundColor = model.searchBarBackgroundColor
         self.tintColor = model.searchBarTintColor
         
-        self.searchBarStyle = .minimal
+        self.searchBarStyle = .Minimal
     }
     
     
@@ -100,17 +101,18 @@ import UIKit
     
     
     // MARK: - Overridden cancel button
-    override func setShowsCancelButton(_ showsCancelButton: Bool, animated: Bool) {
+    override func setShowsCancelButton(showsCancelButton: Bool, animated: Bool) {
         let duration = animated ? 0.3 : 0
         let cancelButton = self.cancelButton
-        let movedRightTransform = CGAffineTransform(translationX: cancelButton.frame.width, y: 0)
         
-        cancelButton.transform = showsCancelButton ? movedRightTransform : .identity
+        let movedRightTransform = CGAffineTransformMakeTranslation(cancelButton.frame.width, 0)
+        
+        cancelButton.transform = showsCancelButton ? movedRightTransform : CGAffineTransformIdentity
         cancelButton.alpha = showsCancelButton ? 0.25 : 1
         
         if showsCancelButton && !self.subviews.contains(cancelButton)  { self.addSubview(cancelButton) }
         
-        UIView.animate(withDuration: duration, animations: {
+        UIView.animateWithDuration(duration, animations: {
             let adjustingAmount = cancelButton.frame.width
             let textField = self.searchTextField
             let insets = self.textFieldEdgeInsets
@@ -118,7 +120,7 @@ import UIKit
             
             if showsCancelButton {
                 textField?.frame.size.width = baseWidth - adjustingAmount - 8
-                cancelButton.transform = .identity
+                cancelButton.transform = CGAffineTransformIdentity
                 cancelButton.alpha = 1
             } else {
                 textField?.frame.size.width = baseWidth
@@ -139,11 +141,11 @@ import UIKit
 
 struct DefaultSearchBarModel: UVSearchBarPresentable {
     var searchFont: UIFont {
-        return UIFont.systemFont(ofSize: 20)
+        return UIFont.systemFontOfSize(20)
     }
     
     var searchTextColor: UIColor {
-        return .black
+        return UIColor.blackColor()
     }
     
     var searchIcon: UIImage {
@@ -154,15 +156,15 @@ struct DefaultSearchBarModel: UVSearchBarPresentable {
     }
     
     var searchFieldBackgroundColor: UIColor {
-        return .gray
+        return UIColor.grayColor()
     }
     
     var searchBarBackgroundColor: UIColor {
-        return .white
+        return UIColor.whiteColor()
     }
     
     var searchBarTintColor: UIColor {
-        return .black
+        return UIColor.blackColor()
     }
 }
 
@@ -188,7 +190,7 @@ extension UISearchBar {
             }
             
             for subview in view.subviews {
-                if let textField = findTextFieldInView(view: subview) {
+                if let textField = findTextFieldInView(subview) {
                     return textField
                 }
             }
@@ -196,6 +198,6 @@ extension UISearchBar {
             return nil
         }
         
-        return findTextFieldInView(view: self)
+        return findTextFieldInView(self)
     }
 }

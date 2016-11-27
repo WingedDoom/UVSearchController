@@ -27,7 +27,7 @@ class UVSearchController: UISearchController, UISearchBarDelegate
         customSearchBar.delegate = self
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -37,20 +37,20 @@ class UVSearchController: UISearchController, UISearchBarDelegate
     
     // MARK: - UISearchBarDelegate functions
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
         customDelegate?.didStartSearching()
         searchBar.setShowsCancelButton(true, animated: true)
         sourceController?.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         customSearchBar.resignFirstResponder()
         customDelegate?.didTapOnSearchButton()
     }
     
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         customSearchBar.resignFirstResponder()
         customDelegate?.didTapOnCancelButton()
         searchBar.setShowsCancelButton(false, animated: true)
@@ -58,14 +58,14 @@ class UVSearchController: UISearchController, UISearchBarDelegate
     }
     
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchBar.text!.isEmpty {
-            self.isActive = true
+            self.active = true
         } else {
-            self.isActive = false
+            self.active = false
         }
         
-        customDelegate?.didChangeSearchText(text: searchText)
+        customDelegate?.didChangeSearchText(searchText)
     }
 }
 

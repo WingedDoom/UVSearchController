@@ -14,8 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("needed frame - \(searchView.frame)")
-        print("screen frame -\(UIScreen.main.bounds)")
         searchController = UVSearchController(searchResultsController: nil, searchBarFrame: searchView.bounds, searchBarViewModel: DefaultSearchBarModel())
         searchController.sourceController = self
         searchController.customSearchBar.placeholder = "Поиск города..."
