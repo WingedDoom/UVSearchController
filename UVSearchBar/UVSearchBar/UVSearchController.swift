@@ -8,11 +8,9 @@
 
 import UIKit
 
-class UVSearchController: UISearchController, UISearchBarDelegate
-{
-    
-    
-    /// A custom Search bar. Use this intead of `searchBar` property.
+class UVSearchController: UISearchController, UISearchBarDelegate {
+
+    /// A custom Search bar. Use this instead of `searchBar` property.
     var customSearchBar: UVSearchBar!
     
     /// A custom delegate. Use this instead of `delegate`
@@ -67,11 +65,4 @@ class UVSearchController: UISearchController, UISearchBarDelegate
         
         customDelegate?.didChangeSearchText(text: searchText)
     }
-}
-
-protocol UVSearchControllerDelegate {
-    func didStartSearching()
-    func didTapOnSearchButton()
-    func didTapOnCancelButton()
-    func didChangeSearchText(text: String)
 }

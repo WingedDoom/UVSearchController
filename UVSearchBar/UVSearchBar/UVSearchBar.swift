@@ -30,7 +30,8 @@ import UIKit
             return button
         } else {
             let button = UIButton(type: .system)
-            button.setTitle(Bundle(identifier: "com.apple.UIKit")?.localizedString(forKey: "Cancel", value: "", table: nil), for: .normal)
+            button.setTitle(Bundle(identifier: "com.apple.UIKit")?
+                    .localizedString(forKey: "Cancel", value: "", table: nil), for: .normal)
             button.sizeToFit()
             button.addTarget(self, action: #selector(self.cancelButtonTapped), for: .touchUpInside)
             button.tag = 315
@@ -68,17 +69,17 @@ import UIKit
         }
     }
     
-    // MARK: - Configuretion with View Model
+    // MARK: - Configuration with View Model
     func configure(withViewModel model: UVSearchBarPresentable) {
-        self.textFieldFont = model.searchFont
-        self.searchIcon = model.searchIcon
-        self.textFieldTextColor = model.searchTextColor
-        self.textFieldEdgeInsets = model.searchTextFieldEdgeInsets
-        self.searchTextField?.backgroundColor = model.searchFieldBackgroundColor
-        self.backgroundColor = model.searchBarBackgroundColor
-        self.tintColor = model.searchBarTintColor
+        textFieldFont = model.searchFont
+        searchIcon = model.searchIcon
+        textFieldTextColor = model.searchTextColor
+        textFieldEdgeInsets = model.searchTextFieldEdgeInsets
+        searchTextField?.backgroundColor = model.searchFieldBackgroundColor
+        backgroundColor = model.searchBarBackgroundColor
+        tintColor = model.searchBarTintColor
         
-        self.searchBarStyle = .minimal
+        searchBarStyle = .minimal
     }
     
     
@@ -163,39 +164,5 @@ struct DefaultSearchBarModel: UVSearchBarPresentable {
     
     var searchBarTintColor: UIColor {
         return .black
-    }
-}
-
-protocol UVSearchBarPresentable {
-    var searchFont: UIFont { get }
-    var searchTextColor: UIColor { get }
-    var searchIcon: UIImage { get }
-    var searchTextFieldEdgeInsets: UIEdgeInsets { get }
-    var searchFieldBackgroundColor: UIColor { get }
-    var searchBarBackgroundColor: UIColor { get }
-    var searchBarTintColor: UIColor { get }
-}
-
-
-// MARK: - Neccessary extensions
-extension UISearchBar {
-    
-    /// This is a computed property, which returns UISearchBar's searchTextField (if finds one)
-    var searchTextField: UITextField? {
-        func findTextFieldInView(view: UIView) -> UITextField? {
-            if let textField = view as? UITextField {
-                return textField
-            }
-            
-            for subview in view.subviews {
-                if let textField = findTextFieldInView(view: subview) {
-                    return textField
-                }
-            }
-            
-            return nil
-        }
-        
-        return findTextFieldInView(view: self)
     }
 }

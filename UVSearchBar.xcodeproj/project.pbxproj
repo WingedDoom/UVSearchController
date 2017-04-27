@@ -12,8 +12,13 @@
 		5244C43A1DE62BD40091CBD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5244C4381DE62BD40091CBD1 /* Main.storyboard */; };
 		5244C43C1DE62BD40091CBD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5244C43B1DE62BD40091CBD1 /* Assets.xcassets */; };
 		5244C43F1DE62BD40091CBD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5244C43D1DE62BD40091CBD1 /* LaunchScreen.storyboard */; };
-		5244C4481DE62CB50091CBD1 /* UVSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5244C4471DE62CB50091CBD1 /* UVSearchBar.swift */; };
-		524F33B21DEB1315004FB55B /* UVSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F33B11DEB1315004FB55B /* UVSearchController.swift */; };
+		B83300F0A7DA37E7592EE69F /* UVSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83301D128B5287FA63FEAA3 /* UVSearchController.swift */; };
+		B83300F3079F690781491175 /* UVSearchBarPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833042A11AF17BE44A36600 /* UVSearchBarPresentable.swift */; };
+		B8330110190AA7A5B06B3B7E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B8330E02328E0CC97C110248 /* README.md */; };
+		B83303CB64EFDE91070C73A2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B8330A6E560E79DFAA77BA6B /* .gitignore */; };
+		B833084F7C2CFBC09C7789F0 /* UVSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8330ABD1750D06617B83402 /* UVSearchBar.swift */; };
+		B833092F5EC6720974F0BFB5 /* UVSearchControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8330E5B2039747C93C02429 /* UVSearchControllerDelegate.swift */; };
+		B8330F52D3E51B4BF178961D /* UISearchBar+searchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8330A0C32583740DA5B757F /* UISearchBar+searchTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,10 +29,15 @@
 		5244C43B1DE62BD40091CBD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5244C43E1DE62BD40091CBD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5244C4401DE62BD40091CBD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5244C4471DE62CB50091CBD1 /* UVSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UVSearchBar.swift; sourceTree = "<group>"; };
-		524F33B11DEB1315004FB55B /* UVSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UVSearchController.swift; sourceTree = "<group>"; };
 		52BA46501DEB73AA00A4032A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		52BA46511DEB73AA00A4032A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		B83301D128B5287FA63FEAA3 /* UVSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UVSearchController.swift; path = UVSearchBar/UVSearchController.swift; sourceTree = "<group>"; };
+		B833042A11AF17BE44A36600 /* UVSearchBarPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UVSearchBarPresentable.swift; path = UVSearchBar/UVSearchBarPresentable.swift; sourceTree = "<group>"; };
+		B8330A0C32583740DA5B757F /* UISearchBar+searchTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UISearchBar+searchTextField.swift"; path = "UVSearchBar/UISearchBar+searchTextField.swift"; sourceTree = "<group>"; };
+		B8330A6E560E79DFAA77BA6B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
+		B8330ABD1750D06617B83402 /* UVSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UVSearchBar.swift; path = UVSearchBar/UVSearchBar.swift; sourceTree = "<group>"; };
+		B8330E02328E0CC97C110248 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B8330E5B2039747C93C02429 /* UVSearchControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UVSearchControllerDelegate.swift; path = UVSearchBar/UVSearchControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +77,8 @@
 				5244C43B1DE62BD40091CBD1 /* Assets.xcassets */,
 				5244C43D1DE62BD40091CBD1 /* LaunchScreen.storyboard */,
 				5244C4401DE62BD40091CBD1 /* Info.plist */,
+				B8330A6E560E79DFAA77BA6B /* .gitignore */,
+				B8330E02328E0CC97C110248 /* README.md */,
 			);
 			path = UVSearchBar;
 			sourceTree = "<group>";
@@ -74,8 +86,11 @@
 		5244C4461DE62C8C0091CBD1 /* UVSearchBar */ = {
 			isa = PBXGroup;
 			children = (
-				5244C4471DE62CB50091CBD1 /* UVSearchBar.swift */,
-				524F33B11DEB1315004FB55B /* UVSearchController.swift */,
+				B8330A0C32583740DA5B757F /* UISearchBar+searchTextField.swift */,
+				B83301D128B5287FA63FEAA3 /* UVSearchController.swift */,
+				B8330E5B2039747C93C02429 /* UVSearchControllerDelegate.swift */,
+				B8330ABD1750D06617B83402 /* UVSearchBar.swift */,
+				B833042A11AF17BE44A36600 /* UVSearchBarPresentable.swift */,
 			);
 			name = UVSearchBar;
 			sourceTree = "<group>";
@@ -143,6 +158,7 @@
 				5244C43F1DE62BD40091CBD1 /* LaunchScreen.storyboard in Resources */,
 				5244C43C1DE62BD40091CBD1 /* Assets.xcassets in Resources */,
 				5244C43A1DE62BD40091CBD1 /* Main.storyboard in Resources */,
+				B83303CB64EFDE91070C73A2 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,10 +169,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				524F33B21DEB1315004FB55B /* UVSearchController.swift in Sources */,
 				5244C4371DE62BD40091CBD1 /* ViewController.swift in Sources */,
-				5244C4481DE62CB50091CBD1 /* UVSearchBar.swift in Sources */,
 				5244C4351DE62BD40091CBD1 /* AppDelegate.swift in Sources */,
+				B8330110190AA7A5B06B3B7E /* README.md in Sources */,
+				B8330F52D3E51B4BF178961D /* UISearchBar+searchTextField.swift in Sources */,
+				B83300F0A7DA37E7592EE69F /* UVSearchController.swift in Sources */,
+				B833092F5EC6720974F0BFB5 /* UVSearchControllerDelegate.swift in Sources */,
+				B833084F7C2CFBC09C7789F0 /* UVSearchBar.swift in Sources */,
+				B83300F3079F690781491175 /* UVSearchBarPresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
